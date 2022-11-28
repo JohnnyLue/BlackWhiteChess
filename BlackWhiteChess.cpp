@@ -7,6 +7,9 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
+	gameEngine* game = new gameEngine();
+	
+	while (!game->gameEnd())
+		game->startGame();
 	return 0;
 }
