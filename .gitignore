@@ -361,3 +361,25 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+*.filters
+*.vcxproj
+build/CMakeFiles/TargetDirectories.txt
+build/CMakeFiles/generate.stamp.list
+build/CMakeFiles/generate.stamp.depend
+build/CMakeFiles/generate.stamp
+build/CMakeFiles/cmake.check_cache
+build/CMakeFiles/af7f1f8424c795299647e21ec080727a/generate.stamp.rule
+build/CMakeFiles/3.21.3/VCTargetsPath.txt
+build/CMakeFiles/3.21.3/CompilerIdCXX/CompilerIdCXX.exe
+build/CMakeFiles/3.21.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
+build/CMakeFiles/3.21.3/CompilerIdC/CompilerIdC.exe
+build/CMakeFiles/3.21.3/CompilerIdC/CMakeCCompilerId.c
+build/CMakeFiles/3.21.3/CMakeSystem.cmake
+build/CMakeFiles/3.21.3/CMakeRCCompiler.cmake
+build/CMakeFiles/3.21.3/CMakeDetermineCompilerABI_CXX.bin
+build/CMakeFiles/3.21.3/CMakeDetermineCompilerABI_C.bin
+build/CMakeFiles/3.21.3/CMakeCXXCompiler.cmake
+build/CMakeFiles/3.21.3/CMakeCCompiler.cmake
+build/CMakeCache.txt
+build/cmake_install.cmake
+build/BlackWhiteChess.sln
