@@ -10,6 +10,7 @@ int main()
 	gameEngine* game = new gameEngine();
 	
 	while (!game->gameEnd())
-		game->startGame();
+		game->runGame();
+
 	return 0;
 }
