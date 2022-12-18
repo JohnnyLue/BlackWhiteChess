@@ -1,3 +1,0 @@
-C:\Users\88698\Desktop\Computer Graphics\TA_project\BlackWhiteChess\x64\Release\BlackWhiteChess.exe
-C:\Users\88698\Desktop\BlackWhiteChess\x64\Release\BlackWhiteChess.exe
-C:\Users\88698\source\repos\BlackWhiteChess\x64\Release\BlackWhiteChess.exe
