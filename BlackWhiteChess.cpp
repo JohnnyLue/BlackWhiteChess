@@ -10,9 +10,9 @@ int main()
     do {
         gameEngine* game = new gameEngine();
         AI* ai = nullptr;
+
         RenderWindow window(VideoMode(297 * 2, 297 * 2), "The Game!", sf::Style::Titlebar | sf::Style::Close);
 
-        
         Texture t1, t2, t3, t4;
         t1.loadFromFile("images/chessBoard.jpg");
         t2.loadFromFile("images/chess2.jpg");
@@ -83,15 +83,6 @@ int main()
             while (window.pollEvent(e))
             {
 
-                if (e.type == Event::Closed)
-                    window.close();
-
-                if (e.type == Event::KeyPressed)
-                    if (e.key.code == Keyboard::Q)
-                    {
-                        game->state = game->state::GAME_END;
-                    }
-
                 if (e.type == Event::MouseButtonPressed)
                 {
                     int x = e.touch.x, y = e.touch.y;
@@ -107,6 +98,18 @@ int main()
 
                 }
 
+                if (e.type == Event::Closed)
+                {
+                    game->state = game->GAME_END;
+                    //window.close();
+                }
+
+                if (e.type == Event::KeyPressed)
+                    if (e.key.code == Keyboard::Q)
+                    {
+                        game->state = game->state::GAME_END;
+                    }
+
             }
 
             if (firstIn)
@@ -118,61 +121,65 @@ int main()
             Time t;
             Clock clock;
 
-            for (int f = 0; f < 7; f++)
+            if (!game->gameEnd())
             {
-                while (t.asSeconds() < 0.05)
-                {
-                    t += clock.restart();
-                }
-                t = t.Zero;
-                window.draw(backGround);
 
-                for (int i = 0; i < 8; i++)
+                for (int f = 0; f < 7; f++)
                 {
-                    for (int j = 0; j < 8; j++)
+                    while (t.asSeconds() < 0.05)
                     {
-                        ani.setPosition(40 + j * 64, 40 + i * 64);
-                        c.setPosition(40 + j * 64, 40 + i * 64);
-                        if (game->board[i * 8 + j] == game->WHITE)
+                        t += clock.restart();
+                    }
+                    t = t.Zero;
+                    window.draw(backGround);
+
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
                         {
-                            if (oldBoard[i * 8 + j] == game->BLACK)//ate anime
+                            ani.setPosition(40 + j * 64, 40 + i * 64);
+                            c.setPosition(40 + j * 64, 40 + i * 64);
+                            if (game->board[i * 8 + j] == game->WHITE)
                             {
-                                ani.setTextureRect(IntRect(33 * f, 33, 33, 33));
-                                window.draw(ani);
+                                if (oldBoard[i * 8 + j] == game->BLACK)//ate anime
+                                {
+                                    ani.setTextureRect(IntRect(33 * f, 33, 33, 33));
+                                    window.draw(ani);
+                                }
+                                else
+                                {
+                                    c.setTextureRect(IntRect(0, 0, 33, 33));
+                                    window.draw(c);
+                                }
+
                             }
-                            else
+                            else if (game->board[i * 8 + j] == game->BLACK)
                             {
-                                c.setTextureRect(IntRect(0, 0, 33, 33));
+                                if (oldBoard[i * 8 + j] == game->WHITE)//ate anime
+                                {
+                                    ani.setTextureRect(IntRect(33 * f, 0, 33, 33));
+                                    window.draw(ani);
+                                }
+                                else
+                                {
+                                    c.setTextureRect(IntRect(33, 0, 33, 33));
+                                    window.draw(c);
+                                }
+                            }
+                            else if (game->board[i * 8 + j] == game->CAN_GO)
+                            {
+                                if (game->state == game->WHITE_GO)
+                                    c.setTextureRect(IntRect(66, 0, 33, 33));
+
+                                if (game->state == game->BLACK_GO)
+                                    c.setTextureRect(IntRect(99, 0, 33, 33));
+
                                 window.draw(c);
                             }
-
-                        }
-                        else if (game->board[i * 8 + j] == game->BLACK)
-                        {
-                            if (oldBoard[i * 8 + j] == game->WHITE)//ate anime
-                            {
-                                ani.setTextureRect(IntRect(33 * f, 0, 33, 33));
-                                window.draw(ani);
-                            }
-                            else
-                            {
-                                c.setTextureRect(IntRect(33, 0, 33, 33));
-                                window.draw(c);
-                            }
-                        }
-                        else if (game->board[i * 8 + j] == game->CAN_GO)
-                        {
-                            if (game->state == game->WHITE_GO)
-                                c.setTextureRect(IntRect(66, 0, 33, 33));
-
-                            if (game->state == game->BLACK_GO)
-                                c.setTextureRect(IntRect(99, 0, 33, 33));
-
-                            window.draw(c);
                         }
                     }
+                    window.display();
                 }
-                window.display();
             }
 
             memcpy(oldBoard, game->board, 64 * sizeof(int));
@@ -208,7 +215,7 @@ int main()
         Clock clock;
         while (clock.getElapsedTime() < sf::seconds(2.5));
 
-        window.setVisible(false);
+        window.close();
 
         std::string a;
         char firstC='0';

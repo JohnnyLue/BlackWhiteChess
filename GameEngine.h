@@ -20,14 +20,14 @@ class gameEngine {
 	
 	sf::Sound sound;
 
-	enum {
+	enum validdation{
 		HAVE_CHESS,
 		OUT_OF_BOUND,
 		CANT_PLACE,
 		VALID
 	};
 
-	enum {
+	enum check{
 		BLACK_NO_PLACE,
 		WHITE_NO_PLACE,
 		NO_PLACE,
@@ -46,7 +46,7 @@ public:
 	int state;
 
 
-	enum {
+	enum symble{
 		BLACK = -1,
 		NO_CHESS = 0,
 		WHITE = 1,
@@ -66,8 +66,6 @@ public:
 
 		state = GAME_SETTING;
 		runGame(-1, -1);
-
-		sf::RenderWindow window(sf::VideoMode(320, 480), "The Game!");
 
 		buffer.loadFromFile("audio/sound.wav");
 		sound.setBuffer(buffer);
