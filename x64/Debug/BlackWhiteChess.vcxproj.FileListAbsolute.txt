@@ -1,0 +1,2 @@
+C:\Users\88698\Desktop\Computer Graphics\TA_project\BlackWhiteChess\x64\Debug\BlackWhiteChess.exe
+C:\Users\88698\Desktop\BlackWhiteChess\x64\Debug\BlackWhiteChess.exe

@@ -1,0 +1,9 @@
+﻿  BlackWhiteChess.cpp
+C:\Users\88698\Desktop\BlackWhiteChess\GameEngine.h(431,1): warning C4267: '正在初始化': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(102,30): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(103,30): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(134,57): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(134,44): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(135,55): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+C:\Users\88698\Desktop\BlackWhiteChess\BlackWhiteChess.cpp(135,42): warning C4244: '引數': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+  BlackWhiteChess.vcxproj -> C:\Users\88698\Desktop\BlackWhiteChess\x64\Debug\BlackWhiteChess.exe
